@@ -1,0 +1,238 @@
+
+<div class="container">
+    <div [hidden]="submitted">
+      <h1>Student Survey Form</h1>
+      <form (ngSubmit)="onSubmit()" #studentSurvey="ngForm">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" class="form-control" id="fname"
+                 required
+                 [(ngModel)]="survey.fname" name="fname"
+                 #fname="ngModel">
+          <div [hidden]="fname.valid || fname.pristine"
+               class="alert alert-danger">
+                First Name is required
+          </div>
+        </div>
+  
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" class="form-control" id="lname"
+                   required
+                   [(ngModel)]="survey.lname" name="lname"
+                   #lname="ngModel">
+            <div [hidden]="lname.valid || lname.pristine"
+                 class="alert alert-danger">
+                  Last Name is required
+            </div>
+          </div>
+
+        <div class="form-group">
+            <label for="add">Street Address</label>
+            <input type="text" class="form-control" id="add"
+                   required
+                   [(ngModel)]="survey.add" name="add"
+                   #add="ngModel">
+            <div [hidden]="add.valid || add.pristine"
+                 class="alert alert-danger">
+                  Street Address is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city"
+                   required
+                   [(ngModel)]="survey.city" name="city"
+                   #city="ngModel">
+            <div [hidden]="city.valid || city.pristine"
+                 class="alert alert-danger">
+                  City is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" class="form-control" id="state"
+                   required
+                   [(ngModel)]="survey.state" name="state"
+                   #state="ngModel">
+            <div [hidden]="state.valid || state.pristine"
+                 class="alert alert-danger">
+                  State is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="zip">Zip</label>
+            <input type="number" class="form-control" id="zip"
+                   required
+                   [(ngModel)]="survey.zip" name="zip"
+                   #zip="ngModel">
+            <div [hidden]="zip.valid || zip.pristine"
+                 class="alert alert-danger">
+                  Zip is required
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="cbox-label"><input type="checkbox" class="form-control" id="cbox"
+                required [(ngModel)]="survey.cbox" name="cbox"
+                #cbox="ngModel"><span class="cbox-caption">Checkbox 1</span></label>
+            <div [hidden]="cbox.valid || cbox.pristine"
+                 class="alert alert-danger">
+                  Checkbox value is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telephone Number</label>
+            <input type="number" class="form-control" id="phone"
+                   required
+                   [(ngModel)]="survey.phone" name="phone"
+                   #phone="ngModel">
+            <div [hidden]="phone.valid || phone.pristine"
+                 class="alert alert-danger">
+                  Telephone is required
+            </div>
+          </div>
+
+         <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email"
+                   required
+                   [(ngModel)]="survey.email" name="email"
+                   #email="ngModel">
+            <div [hidden]="email.valid || email.pristine"
+                 class="alert alert-danger">
+                  Email ID is required
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sdate">Survey Date</label>
+            <input type="date" class="form-control" id="sdate"
+                   required
+                   [(ngModel)]="survey.sdate" name="sdate"
+                   #sdate="ngModel">
+            <div [hidden]="sdate.valid || sdate.pristine"
+                 class="alert alert-danger">
+                  Survey Date is required
+            </div>
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="sdate">What did you like most about the campus?</label><br>
+            <label>Students:
+              <input type="checkbox" ng-model="survey.students" value="Friends" name="test">
+            </label><br>
+            <label>Location:
+              <input type="checkbox" ng-model="survey.location" value="Location" name="test">
+            </label><br>
+          </div>
+           <label>Campus:
+              <input type="checkbox" ng-model="survey.campus" value="Friends">
+            </label><br>
+            <label>Atmosphere:
+              <input type="checkbox" ng-model="survey.atm" value="Friends">
+            </label><br>
+            <label>Dorm Rooms:
+              <input type="checkbox" ng-model="survey.drooms" value="Friends">
+            </label><br>
+            <label>Sports:
+              <input type="checkbox" ng-model="survey.sports" value="Friends">
+            </label><br>
+          </div>-->
+          
+
+
+          <div class="form-group">
+            <label for="sdate">How did you became interested in the university?</label><br>  
+            <label>
+              <input type="radio" [(ngModel)]="survey.interest" value="Friends" name=intr>
+              Friends
+            </label><br/>
+            <label>
+              <input type="radio" [(ngModel)]="survey.interest" value="Television" name=intr>
+              Television
+            </label><br/>
+            <label>
+              <input type="radio" [(ngModel)]="survey.interest" value="Internet" name=intr>
+              Internet
+            </label><br/>
+            <label>
+              <input type="radio" [(ngModel)]="survey.interest" value="Other" name=intr>
+              Other
+            </label><br/>
+          </div>
+
+          <div class="form-group">
+            <label for="opt">Likelihood of you recommending this school?</label>
+            <select class="form-control" id="opt"
+                    [(ngModel)]="survey.opt" name="opt"
+                    #opt="ngModel">
+              <option *ngFor="let x of optionsRecommend" [value]="x">{{x}}</option>
+            </select>
+          </div>
+          
+
+        <button type="submit" class="btn btn-success"  [disabled]="!studentSurvey.form.valid">Submit</button>
+        <button type="button" class="btn btn-default" (click)="studentSurvey.reset()">New Form</button>
+        <button class="btn btn-default"> <a [routerLink]="'/'"> Back to Home Page </a> </button>
+      </form>
+    </div>
+</div>
+
+<div [hidden]="!submitted">
+    <h2>Your form has been saved successfully!!!</h2>
+    <div class="row">
+      <div class="col-xs-3">First Name</div>
+      <div class="col-xs-9">{{ survey.fname }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Last Name</div>
+      <div class="col-xs-9">{{ survey.lname }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Address</div>
+      <div class="col-xs-9">{{ survey.add }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">City</div>
+      <div class="col-xs-9">{{ survey.city }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">State</div>
+      <div class="col-xs-9">{{ survey.state }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Zip</div>
+      <div class="col-xs-9">{{ survey.zip }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Telephone Number</div>
+      <div class="col-xs-9">{{ survey.phone }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Email</div>
+      <div class="col-xs-9">{{ survey.email }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Survey Date</div>
+      <div class="col-xs-9">{{ survey.sdate }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Like about campus</div>
+      <div class="col-xs-9">{{ survey.students }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Interest</div>
+      <div class="col-xs-9">{{ survey.interest }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Likelihood of recommendation</div>
+      <div class="col-xs-9">{{ survey.opt }}</div>
+    </div>   
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false;studentSurvey.reset()">Back to form</button>
+  </div>
+  
+ 

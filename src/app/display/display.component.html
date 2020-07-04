@@ -1,0 +1,33 @@
+<div align="center">
+    <h4>List of all survey data</h4>
+    <!--<div *ngFor="let record of surveyList">
+        <p>{{record.fname}}</p>
+      </div>-->
+      <table class="table">
+        <tr>
+            <th>Record No.</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+            <th>Telephone</th>
+            <th>Email</th>
+            <th>Survey Date</th>                       
+        </tr>
+        <tr *ngFor="let record of surveyList; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{record.fname}}</td>
+            <td>{{record.lname}}</td>
+            <td>{{record.add}}</td>
+            <td>{{record.city}}</td>
+            <td>{{record.state}}</td>
+            <td>{{record.zip}}</td>
+            <td>{{record.phone}}</td>
+            <td>{{record.email}}</td>
+            <td>{{record.sdate}}</td>
+        </tr>
+    </table>
+    <button class="btn btn-default"> <a [routerLink]="'/'"> Back to Home Page </a> </button>
+</div>

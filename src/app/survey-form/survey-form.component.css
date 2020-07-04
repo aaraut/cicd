@@ -1,0 +1,14 @@
+.cbox-label{
+    display: inline-block;
+    width: 100%;
+}
+.cbox-label .form-control{
+    height: 19px;
+    width: 30px;
+    display: inline-block;
+}
+.cbox-label .cbox-caption{
+    display: inline-block;
+    margin-top: 4px;
+    vertical-align: top;
+}
